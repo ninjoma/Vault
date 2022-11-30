@@ -1,0 +1,120 @@
+.head {
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: #8c52ff;
+}
+.tituloLogo {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.logo {
+    width: 40px;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.titulo {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+hr {
+    height: 30px;
+    background-color: black;
+    margin: 20px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+
+.h1_Header {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.buttonHeader {
+        border: none;
+        color: white;
+        background-color: blue;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+}
+
+.medio {
+    display: flex;
+    gap: 5%;
+}
+
+.tableIzq {
+    width: 100%;
+}
+
+.leftDiv {
+    width: 30%;
+    height: 880px;
+    background-color: #5025a5;
+    color: white;
+}
+
+.rightDiv {
+    margin-top: 30px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+  }
+
+  td, th {
+    border: 1px solid black;
+    padding: 8px;
+  }
+
+  .tdCategories {
+    text-align: left;
+  }
+  .tdInfo {
+    text-align: center;
+  }
+
+.bi-plus-circle{
+    content: "\f4fa";
+    /*margin-left: 100px;*/
+}
+
+.trCategories {
+    text-align: center;
+    font-size: 25px;
+}
+
+.thCategories {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tableDcha {
+    width: 270%;
+    height: 300px;
+}
+
+h4 {
+    font-size: 25px;
+    text-align: center;
+}
+
+.iconos {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.thTitulos {
+
+}
