@@ -124,6 +124,10 @@ hr {
     cursor: pointer;
 }
 
+.bi-dash {
+    cursor: pointer;
+}
+
 table {
     border-bottom: 3px solid white;
     border-collapse: collapse;

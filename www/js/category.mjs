@@ -22,7 +22,7 @@ class Category {
     }
 
     static async DeleteCategory(id){
-        await fetch(Config.API_URL + "/" + id, {
+        await fetch(Config.API_URL + "/categories/" + id, {
             method: "DELETE",
             headers: Config.DefaultHeader,
         })

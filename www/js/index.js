@@ -3,7 +3,18 @@ import { Site } from "./site.mjs";
 
 var categoryContainer = document.getElementById("categorycontainer");
 var categoryTable = document.getElementById("categorytable");
+var createcategory = document.getElementById("createcategory");
 
+createcategory.addEventListener("click", () => {
+    let categoryname = prompt("Por favor, introduce el nombre de la nueva categoría");
+    if(categoryname.trim().length < 1){
+        alert("por favor, introduzca un nombre válido.")
+        return;
+    }
+    Category.CreateNew(categoryname).then(() => {
+        retrieveCategories();
+    })
+});
 
 async function retrieveSites(element) {
     var siteList = await Site.GetAllSitesByCategory(element.dataset.categoryid)
@@ -54,22 +65,34 @@ async function retrieveSites(element) {
     })
 }
 
+async function retrieveCategories() {
+    categoryContainer.innerHTML = "";
+    Category.GetAllCategories().then((result) => {
+        result.forEach(element => {
+            var categoryDOM = document.createElement("div");
+            categoryDOM.classList.add("category");
+            categoryDOM.dataset.categoryid = element.id;
+            var categoryTitleDOM = document.createElement("div");
+            categoryTitleDOM.classList.add("categorytitle");
+            categoryTitleDOM.innerHTML = element.name;
+    
+            categoryTitleDOM.addEventListener("click", async () => {
+                retrieveSites(categoryDOM);
+            });
+            categoryDOM.appendChild(categoryTitleDOM);
 
-Category.GetAllCategories().then((result) => {
-    console.log(result)
-    result.forEach(element => {
-        var categoryDOM = document.createElement("div");
-        categoryDOM.classList.add("category");
-        categoryDOM.dataset.categoryid = element.id;
-        var categoryTitleDOM = document.createElement("div");
-        categoryTitleDOM.classList.add("categorytitle");
-        categoryTitleDOM.innerHTML = element.name;
+            var DeleteCategoryDOM = document.createElement("i");
+            DeleteCategoryDOM.classList.add("bi", "bi-dash")
+            DeleteCategoryDOM.addEventListener("click", () => {
+                Category.DeleteCategory(categoryDOM.dataset.categoryid).then(() => {
+                    retrieveCategories();
+                });
+            }) 
+            categoryDOM.appendChild(DeleteCategoryDOM);
 
-        categoryTitleDOM.addEventListener("click", async () => {
-            retrieveSites(categoryDOM);
+            categoryContainer.appendChild(categoryDOM);
         });
+    })
+}
 
-        categoryDOM.appendChild(categoryTitleDOM);
-        categoryContainer.appendChild(categoryDOM);
-    });
-})
+retrieveCategories();
