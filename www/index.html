@@ -11,63 +11,44 @@
 </head>
 <body>
     <div class="container">
-        <div class="head">
+        <header>
             <img class="logo" src="media/LOGO.png" alt="logo">
-            <h1 class="tituloLogo">VAULT</h1>
+            <h1 class="logotitle">VAULT</h1>
             <hr>
             <h3 class="titulo">Bienvenido al gestor de contraseñas</h3>
-        </div>
-        <div class="medio">
-            <div class="leftDiv">
-                <table class="tableIzq">
-                    <h2 class="categoryTitle">CATEGORIAS</h2>
-                    <tr>
-                        <th class="categories">
-                            <img class="iconoMenu" src="media/menu.png">
-                            <h3>GAMING1</h3>
-                            <img class="iconoAñadir" src="media/anadir.png">
-                        </th>
-                    </tr>
-                    <tr>
-                        
-                        <td class="categoryItem">
-                            <img class="iconoCandado" src="media/candado.png">
-                            <p>Item1</p>
-                            <img class="iconoOjo" src="media/ver.png">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="categoryItem">
-                            <img class="iconoCandado" src="media/candado.png">
-                            <p>Item2</p>
-                            <img class="iconoOjo" src="media/ver.png">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="categoryItem">
-                            <img class="iconoCandado" src="media/candado.png">
-                            <p>Item3</p>
-                            <img class="iconoOjo" src="media/ver.png">
-                        </td>
-                    </tr>
-                </table>
-                
+        </header>
+        <div class="content">
+            <div class="sidetab">
+                <div class="addcontainer">
+                    <button class="btn"> <i class="bi bi-plus"></i> New Category </button>
+                    <button class="btn"> <i class="bi bi-plus"></i> New Site </button>
+                </div>
+                <div class="categorycontainer">
+                    <div class="category">
+                        ColumnTitle
+                        <div>
+                            <i class="bi bi-x"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
             
-            <div class="rightDiv">
-                <table class="tableDcha">
+            <div class="sitetablecontainer">
+                <table>
                     <tr>
-                        <th class="thTitulos"><h4>Sitio</h4></th>
-                        <th class="thTitulos"><h4>Usuario</h4></th>
-                        <th class="thTitulos"><h4>Creado por</h4></th>
-                        <th class="thTitulos"><h4>Acciones</h4></th>
+                        <th class="tabletitle"><h4>Sitio</h4></th>
+                        <th class="tabletitle"><h4>Usuario</h4></th>
+                        <th class="tabletitle"><h4>Contraseña</h4></th>
+                        <th class="tabletitle"><h4>Fecha de creación</h4></th>
+                        <th class="tabletitle"><h4>Acciones</h4></th>
                     </tr>
                     <tr>
-                        <td class="tdInfo"><p>Google</p></td>
-                        <td class="tdInfo"><p>Mysamples</p></td>
-                        <td class="tdInfo"><p>10/10/2020</p></td>
-                        <td class="tdInfo">
-                            <div class="iconos">
+                        <td class="tablecolumn"><span>Google</span></td>
+                        <td class="tablecolumn"><span>Mysamples</span></td>
+                        <td class="tablecolumn"><span>*********</span></td>
+                        <td class="tablecolumn"><span>10/10/2020</span></td>
+                        <td class="tablecolumn">
+                            <div class="tableicons">
                                 <i class="bi bi-archive-fill"></i>
                                 <i class="bi bi-x-circle-fill"></i>
                                 <i class="bi bi-pencil-fill"></i>
@@ -75,11 +56,12 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="tdInfo"><p>Facebook</p></td>
-                        <td class="tdInfo"><p>fbUser</p></td>
-                        <td class="tdInfo"><p>08/10/2018</p></td>
-                        <td class="tdInfo">
-                            <div class="iconos">
+                        <td class="tablecolumn"><span>Facebook</span></td>
+                        <td class="tablecolumn"><span>fbUser</span></td>
+                        <td class="tablecolumn"><span>*********</span></td>
+                        <td class="tablecolumn"><span>08/10/2018</span></td>
+                        <td class="tablecolumn">
+                            <div class="tableicons">
                                 <i class="bi bi-archive-fill"></i>
                                 <i class="bi bi-x-circle-fill"></i>
                                 <i class="bi bi-pencil-fill"></i>
@@ -91,7 +73,6 @@
                 </table>
             </div>
         </div>
-        </table>
     </div>
 </body>
     <script type="module" src="./js/DOMController.js"></script>
