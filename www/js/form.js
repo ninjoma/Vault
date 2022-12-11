@@ -26,7 +26,8 @@ function generatePassword(){
     .join('')
 }
 
-passwordgenerator.addEventListener("click", () => {
+passwordgenerator.addEventListener("click", (evt) => {
+    evt.preventDefault();
     passwordfield.value = generatePassword();
 });
 
@@ -63,4 +64,3 @@ window.onload = async function(){
         }
     }
 }
-

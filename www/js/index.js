@@ -68,6 +68,15 @@ async function retrieveSites(categoryid, sitename) {
         // site Password
         var passwordDOM = document.createElement("td");
         passwordDOM.classList.add("tablecolumn");
+        passwordDOM.show = false;
+        passwordDOM.addEventListener("click", () => {
+            if( passwordDOM.show ){
+                passwordDOM.innerHTML = site.password;
+            } else {
+                passwordDOM.innerHTML = "********";
+            }
+            passwordDOM.show = !passwordDOM.show;
+        })
         passwordDOM.innerHTML = "********";
         sitecontainerDOM.appendChild(passwordDOM);
 
