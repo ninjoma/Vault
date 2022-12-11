@@ -5,6 +5,8 @@ var categoryContainer = document.getElementById("categorycontainer");
 var categoryTable = document.getElementById("categorytable");
 var createcategory = document.getElementById("createcategory");
 var addNewSite = document.getElementById("createsite");
+var searchSite = document.getElementById("searchsite");
+var searchCategory = document.getElementById("searchcategory");
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -19,9 +21,17 @@ addNewSite.addEventListener("click", () => {
     window.location = url;
 });
 
+searchSite.addEventListener("input", () => {
+    retrieveSites(window.currentCategory, searchSite.value);
+})
+
+searchCategory.addEventListener("input", () => {
+    retrieveCategories(searchCategory.value);
+})
+
 createcategory.addEventListener("click", () => {
     let categoryname = prompt("Por favor, introduce el nombre de la nueva categoría");
-    if(categoryname.trim().length < 1){
+    if(categoryname == null || categoryname.trim().length < 1){
         alert("por favor, introduzca un nombre válido.")
         return;
     }
@@ -30,10 +40,14 @@ createcategory.addEventListener("click", () => {
     })
 });
 
-async function retrieveSites(categoryid) {
+async function retrieveSites(categoryid, sitename) {
     var siteList = await Site.GetAllSitesByCategory(categoryid)
     categoryTable.innerHTML = "";
-    console.log(siteList);
+    if(sitename){
+        siteList = siteList.filter((site) => { 
+            return site.name.toLowerCase().includes(sitename) 
+        });
+    }
     siteList.forEach(site => {
         // Parent
         var sitecontainerDOM = document.createElement("tr");
@@ -103,9 +117,14 @@ async function retrieveSites(categoryid) {
     })
 }
 
-async function retrieveCategories() {
+async function retrieveCategories(categoryname) {
     categoryContainer.innerHTML = "";
     Category.GetAllCategories().then((result) => {
+
+        if(categoryname){
+            result = result.filter((category) => category.name.includes(categoryname));
+        }
+
         result.forEach(element => {
             var categoryDOM = document.createElement("div");
             categoryDOM.classList.add("category");

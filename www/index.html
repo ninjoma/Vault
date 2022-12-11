@@ -16,12 +16,16 @@
             <h1 class="logotitle">VAULT</h1>
             <hr>
             <h3 class="titulo">Bienvenido al gestor de contraseñas</h3>
+            <input class="textbox" id="searchsite" type="text" placeholder="Escribe un nombre...">
         </header>
         <div class="content">
             <div class="sidetab">
-                <div class="addcontainer">
-                    <button id="createcategory" class="btn"> <i class="bi bi-plus"></i> New Category </button>
-                    <button id="createsite" class="btn"> <i class="bi bi-plus"></i> New Site </button>
+                <div class="filters">
+                    <input class="textbox" id="searchcategory" style="width:100%;" type="text" placeholder="Buscar por categoría">
+                    <div class="addcontainer">
+                        <button id="createcategory" class="btn"> <i class="bi bi-plus"></i> New Category </button>
+                        <button id="createsite" class="btn"> <i class="bi bi-plus"></i> New Site </button>
+                    </div>
                 </div>
                 <div class="categorycontainer" id="categorycontainer">
                     

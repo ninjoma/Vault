@@ -26,16 +26,26 @@ header {
     display: flex;
     min-height:64px;
     align-items: center;
+    padding-left:10px;
+    padding-right:12px;
     color: white;
     background-color: #8c52ff;
 }
+
+.textbox{
+    padding: 10px;
+    background-color: #e5e5e5;
+    border:0px solid;
+    border-radius: 10px;
+    outline: none;
+}
+
 .logotitle {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .logo {
     width: 40px;
     margin-right: 20px;
-    margin-left: 10px;
 }
 
 .titulo {
@@ -58,14 +68,20 @@ hr {
 
 
 .addcontainer {
-    padding:10px;
+    width:100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap:5px;
+    padding-top:10px;
+    padding-bottom:10px;
+    justify-content: space-between;
+}
+
+.filters {
+    padding-left:15px; padding-right: 15px; padding-top:15px;
 }
 
 .btn {
+    width:max-content;
 	background-color: #8c52ff;
     color:white;
     border-radius: 10px;
@@ -94,12 +110,17 @@ hr {
 }
 
 .sidetab {
+    padding:10px;
+    padding:10px;
+    display: flex;
+    flex-direction: column;
     height:100%;
     flex:0.6;
     background-color: #5025a5;
     color: white;
     min-width:320px;
 }
+
 
 .sitetablecontainer {
     margin-top: 30px;
@@ -177,4 +198,8 @@ h4 {
 
 .tabletitle > h4 {
     text-align: center;
+}
+
+#searchsite {
+    margin-left:auto;
 }
