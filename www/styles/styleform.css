@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
 
@@ -14,6 +15,7 @@ html, body {
     display:flex;
     flex-direction: column;
     height: 100%;
+    background-color: #5025a5;
 }
 
 .head {
@@ -51,66 +53,87 @@ hr {
 }
 
 .main {
-    border: 3px solid #8c52ff;
     border-radius: 30px;
-    width: 50%;
-    height: 70vh;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 100%;
+    padding-top:50px;
+    padding-bottom:50px;
     margin-top: auto;
     margin-bottom: auto;
     margin-left: auto;
     margin-right: auto;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width:512px;
 }
-.title{
+.title > h1{
     display: flex;
     justify-content: center;
     font-size: 25px;
-    font-weight: 700;
 }
+
+textarea {
+    resize: none;
+}
+
 .doble{
     display: flex;
     justify-content: space-evenly;
+    gap: 10px;
+    padding-top:15px;
+    padding-bottom:15px;
+    padding-left:30px;
+    padding-right:30px;
 }
 
 .textbox1{
     width: 100%;
     padding: 10px;
-    border: 1px solid black;
-    border-top: none;
-    border-right: none;
-    border-left: none;
+    background-color: #e5e5e5;
+    border:0px solid;
+    border-radius: 10px;
     outline: none;
 }
 .textbox2{
-    width: 95%;
+    width: 100%;
     padding: 10px;
-    border: 1px solid black;
-    border-top: none;
-    border-right: none;
-    border-left: none;
+    background-color: #e5e5e5;
+    border:0px solid;
+    border-radius: 10px;
     outline: none;
 }
 
 .box{
     display: flex;
     align-items: center;
+    height: 100%;
 }
 .check{
     width: 30px;
 }
 .siteUsername{
-    width: 45%;
+    width: 100%;
 }
 .sitePassword{
-    width: 45%;
+    width: 100%;
 }
+
+.sitePassword > .box > input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
 .site{
-    margin-left: 30px;
+    padding-top:15px;
+    padding-bottom:15px;
+    padding-left:30px;
+    padding-right:30px;
 }
 .boton{
     display: flex;
     justify-content: center;
-    margin-top: 50px;
 }
 
 .button{
@@ -119,8 +142,24 @@ hr {
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 20px;
-    border: 1px solid black;
+    border: 0px solid black;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     border-radius: 15px;
+    background-color: #8c52ff;
+    color: white;
+    cursor: pointer;
+}
+
+.generator{
+    padding:5px;
+    padding-left:10px;
+    padding-right:10px;
+    height:100%;
+    font-size: 22px;
+    border: 0px solid black;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     background-color: #8c52ff;
     color: white;
     cursor: pointer;

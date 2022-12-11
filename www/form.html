@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="styles/styleform.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <img class="logo" src="media/LOGO.png" alt="logo">
+            <h1 class="tituloLogo">VAULT</h1>
+            <hr>
+            <h3 class="titulo">Añadir / Editar Sitio</h3>
+        </div>
+
+        <div class="main">
+            <div class="title">
+                <h1>Añadir / Editar Sitio</h1>
+            </div>
+            <form class="form" id="siteform">
+                <div class="site">
+                    <div class="box">
+                        <input class="textbox2" id="sitename" type="text" placeholder="Nombre del Sitio" required >
+                    </div>
+                </div>
+                <div class="doble">
+                    <div class="siteUsername">
+                        <div class="box">
+                            <input class="textbox1" id="username" type="text" placeholder="Nombre de usuario" required >
+                        </div>
+                    </div>
+                    <div class="sitePassword">
+                        <div class="box">
+                            <input id="password" class="textbox1" type="text" placeholder="Contraseña" required min="7" max="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            title="La contraseña debe contener un número, una mayúscula, una mínuscula y al menos 7 carácteres o más">
+                            <button class="generator" id="passwordgenerator"> <i class="bi bi-shuffle"></i> </button>
+                        </div>
+                    </div>
+                </div> 
+                <div class="site">
+                    <div class="box">
+                        <input class="textbox2" id="url" type="text" placeholder="Url" required >
+                    </div>
+                </div>
+                <div class="site">
+                    <div class="box">
+                        <textarea class="textbox2" type="text" id="description" placeholder="Escriba su descripcion..." cols="5" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="boton">
+                    <input class="button" type="submit" value="Enviar">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+    <script type="module" src="./js/form.js"></script>
+</html>

@@ -158,8 +158,11 @@ h4 {
 }
 
 .tableicons {
-    display: flex;
-    justify-content: space-evenly;
+    text-align: center;
+}
+.tableicons > * {
+    padding-left:10px;
+    padding-right:10px;
 }
 
 .tabletitle {

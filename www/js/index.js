@@ -4,6 +4,20 @@ import { Site } from "./site.mjs";
 var categoryContainer = document.getElementById("categorycontainer");
 var categoryTable = document.getElementById("categorytable");
 var createcategory = document.getElementById("createcategory");
+var addNewSite = document.getElementById("createsite");
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+addNewSite.addEventListener("click", () => {
+    if(!window.currentCategory){
+        alert("Por favor, selecciona la categoría donde quieres crear el Site.")
+        return;
+    };
+    let url = '/form.html?'
+    url = url + 'category=' + window.currentCategory;
+    window.location = url;
+});
 
 createcategory.addEventListener("click", () => {
     let categoryname = prompt("Por favor, introduce el nombre de la nueva categoría");
@@ -16,9 +30,10 @@ createcategory.addEventListener("click", () => {
     })
 });
 
-async function retrieveSites(element) {
-    var siteList = await Site.GetAllSitesByCategory(element.dataset.categoryid)
+async function retrieveSites(categoryid) {
+    var siteList = await Site.GetAllSitesByCategory(categoryid)
     categoryTable.innerHTML = "";
+    console.log(siteList);
     siteList.forEach(site => {
         // Parent
         var sitecontainerDOM = document.createElement("tr");
@@ -50,15 +65,38 @@ async function retrieveSites(element) {
         sitecontainerDOM.appendChild(dateDOM);
 
         var actionsDOM = document.createElement("td");
-        actionsDOM.classList.add("tablecolumn");
+        actionsDOM.classList.add("tablecolumn", "tableicons");
+
+        var OpenUrlDOM = document.createElement("i");
+        OpenUrlDOM.classList.add("bi", "bi-archive-fill");
+        OpenUrlDOM.addEventListener("click", async () => {
+            window.open(site.url);
+        })
+        actionsDOM.appendChild(OpenUrlDOM);
+
         var DeleteButtonDOM = document.createElement("i");
-        DeleteButtonDOM.classList.add("bi", "bi-x-circle-fill")
+        DeleteButtonDOM.classList.add("bi", "bi-x-circle-fill");
         DeleteButtonDOM.addEventListener("click", () => {
             Site.DeleteSite(sitecontainerDOM.dataset.siteid).then(() => {
-                retrieveSites(element);
+                retrieveSites(categoryid);
             });
         })
         actionsDOM.appendChild(DeleteButtonDOM);
+
+        var EditButtonDOM = document.createElement("i");
+        EditButtonDOM.classList.add("bi", "bi-pencil-fill");
+        EditButtonDOM.addEventListener("click", () => {
+            if(!window.currentCategory){
+                return;
+            };
+            let url = '/form.html?'
+            url = url + 'category=' + window.currentCategory;
+            url = url + '&site=' + sitecontainerDOM.dataset.siteid;
+            window.location = url;
+        });
+        actionsDOM.appendChild(EditButtonDOM);
+
+        
         sitecontainerDOM.appendChild(actionsDOM);
 
         categoryTable.appendChild(sitecontainerDOM);
@@ -77,7 +115,8 @@ async function retrieveCategories() {
             categoryTitleDOM.innerHTML = element.name;
     
             categoryTitleDOM.addEventListener("click", async () => {
-                retrieveSites(categoryDOM);
+                retrieveSites(categoryDOM.dataset.categoryid);
+                window.currentCategory = categoryDOM.dataset.categoryid;
             });
             categoryDOM.appendChild(categoryTitleDOM);
 
@@ -95,4 +134,15 @@ async function retrieveCategories() {
     })
 }
 
-retrieveCategories();
+window.onload = function(){
+    retrieveCategories();
+    var categoryid = urlParams.get('category');
+    var siteid = urlParams.get('site');
+    if(categoryid){
+        retrieveSites(categoryid).then(() => {
+            window.currentCategory = categoryid;
+            window.history.pushState({}, document.title, window.location.pathname);
+        })
+    }
+}
+

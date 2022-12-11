@@ -17,9 +17,16 @@ async function listCategorySites(req, res) {
 }
 
 async function addNewSite(req, res) {
-  let result = await models.Site.build(req.body)
-  result.categoryId = req.params.id
-  await result.save()
+  let result;
+  if(req.body.id != null && await models.Site.findByPk(req.body.id)){
+    // Necesitábamos un método para actualizar Sites. Siento Editar la BBDD :P
+    result = await models.Site.findByPk(req.body.id);
+    result.update(req.body);
+  } else {
+    result = await models.Site.build(req.body)
+    result.categoryId = req.params.id
+    await result.save();
+  }
   res.send(result)
 }
 
