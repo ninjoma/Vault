@@ -119,6 +119,11 @@ hr {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.categorytitle {
+    width:100%;
+    cursor: pointer;
+}
+
 table {
     border-bottom: 3px solid white;
     border-collapse: collapse;
